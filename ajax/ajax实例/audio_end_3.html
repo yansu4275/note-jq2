@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		
+		<audio id="audio1" src="../img/3min.mp3" controls>
+		  	Your browser does not support HTML5 video.
+		</audio>
+		
+		<audio id="audio2" src="../img/end.mp3" controls>
+		  	Your browser does not support HTML5 video.
+		</audio>
+		
+		
+		
+
+	</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		audio_time()
+	})
+	
+	function audio_ajax(){
+		$.ajax({
+			type:"get",
+			url:"audio.json",
+			async:false,
+			dataType:'json',
+			success:function(data){
+				endTime = data.end_time
+				nowTime = data.nowtime
+				remainingTime = endTime - nowTime
+				
+				console.log('剩余时间：'+remainingTime)
+				if (remainingTime >= 0) {
+					console.log('定时器关闭')
+					clearInterval(audio_1s)
+					audio_play()
+				}
+			}
+		});
+	}
+	
+	function audio_time(){
+		audio_1s = setInterval(function(){
+			audio_ajax()
+		},1000)
+	}
+	
+	function audio_play(){
+//		console.log(remainingTime)
+		setTimeout(function(){
+			console.log('第一段-----播放')
+			
+			$('#audio1').get(0).play()
+			$('#audio1').bind('ended' , function(){
+				console.log('第一段-----结束')
+			}) 
+		},remainingTime*1000 - 10000)
+		 
+		setTimeout(function(){
+			console.log('第二段-----播放')
+			
+			$('#audio2').get(0).play()
+			$('#audio2').bind('ended' , function(){
+//				console.log('第二段-----结束，开启定时器')
+//				audio_time()
+			}) 
+			
+			
+		},remainingTime*1000)
+	
+	}
+</script>

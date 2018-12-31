@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-3.2.0.js"></script>
+	</head>
+	<body>
+		<h3>$(selector).load(URL,data,callback);</h3>
+		<p>必需的 URL 参数规定您希望加载的 URL。</p>
+		<p>可选的 data 参数规定与请求一同发送的查询字符串键/值对集合。</p>
+		<p>可选的 callback 参数是 load() 方法完成后所执行的函数名称。</p>
+		<hr />
+		
+		<button type="button" class="aaa">从ajax--1.html中获取其中的#bbb，然后变色</button>
+		<p class="bbb">000000000000</p>
+	</body>
+</html>
+<script type="text/javascript">
+	$('.aaa').click(function(){
+		$('.bbb').load('01load()--1.html #bbb',function(){
+			$(this).css({'background':'orange'})
+		})
+	})
+	
+
+</script>

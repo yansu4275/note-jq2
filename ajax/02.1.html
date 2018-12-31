@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="login"> 
+			<p class="loginTittle">登录</p> 
+			<span class="loginspan"> 
+				帐号 <input type="text" id="userName" value="输入你的帐号"/> 
+				密码 <input type="password" id="password" /> 
+			</span> 
+			
+			<input type="button" value="登 录" /> 
+		</div>
+	</body>
+</html>
+<script src="../js/jquery-3.2.0.js"></script>
+<script type="text/javascript">
+	//主要就是ajax部分，这里用到了JQuery中的$.ajax函数，详细用法请参照JQ文档 
+	$.ajax({ 
+		//		第一个参数url，PHP脚本的位置，我要把参数传到什么位置
+//		'url':'login.php',
+		
+		//传递什么数据，这里我用的是json格式，如果不知道什么是json数据，可以自己搜索一下 		
+		'data':{
+			"username":$('#userName').val(),
+			"password":$('#password').val(),
+		},
+
+		//success表示，当服务器返回数据成功后，该做什么，返回的数据储存在data中，我们直接把data传入函数中。 
+		'success':function(data){
+			switch(data.type){
+				case 0:alert('账户不存在');break; 
+				
+				case 1:{ 
+					$('#userMsg').children('li').eq(2).find('span').html(' '+data.gouwuchenum+' '); 				
+					$('#loginMsg li').eq(1).empty().html('<span>'+data.name+'</span>');
+					$('#loginMsg li').eq(2).empty().html('<a href="javascript:tuichu()">退出</a>'); 
+					$('.login').animate({right:-180,opacity:0},400,function(){
+						$(this).css('display','none'); }); break; 
+				} 
+				
+				case 2:alert('密码错误');break; 
+			}
+		}, 
+		
+		'type':'post',
+</script>

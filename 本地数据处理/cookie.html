@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="aaa" value="" />
+		<button onclick="setCookie()">保存</button>
+		<button onclick="removeCookie()">删除</button>
+		<button onclick="getCookie()">删除</button>
+		
+		<hr />
+		<a href="../0.使用数组创建多个标签.html">00000000000000000000</a>
+	</body>
+</html>
+<script type="text/javascript">
+	function setCookie(key, value, iDay) {
+	    var oDate = new Date();
+	    oDate.setDate(oDate.getDate() + iDay);
+	    
+	    var value = document.getElementById('aaa')
+	    document.cookie = key + '=' + value + ';expires=' + oDate;
+	}
+	function removeCookie(key) {
+	    setCookie(key, '', -1);//这里只需要把Cookie保质期退回一天便可以删除
+	}
+	function getCookie(key) {
+	    var cookieArr = document.cookie.split('; ');
+	    for(var i = 0; i < cookieArr.length; i++) {
+	        var arr = cookieArr[i].split('=');
+	        if(arr[0] === key) {
+	            return arr[1];
+	        }
+	    }
+	    return false;
+	}
+</script>

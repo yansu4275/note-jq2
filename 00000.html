@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+		<style type="text/css">
+		</style>
+	</head>
+	
+	
+	
+	<body>
+		<button>1111</button>
+		<p>00000000000000000000</p>
+		<span>遮罩</span>
+		<script type="text/javascript">
+			$('span').hide()
+			
+			$('button').click(function(){
+				$('span').show()
+				
+				setTimeout(function(){
+					$('p').toggle()
+					$('span').hide()
+				},3000)
+				
+			})
+		</script>
+	
+	
+	
+	
+	</body>
+</html>

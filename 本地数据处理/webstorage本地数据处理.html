@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../ajax/js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		
+		111111111111111111111111111111111111111111111111111111111111111111
+		<p>sessionStorage---------存储在缓存里，页面关闭后数据清除</p>
+		<input type="text" name="" id="username" />
+		<input type="text" name="" id="password" />
+		<button onclick="myClick1()">储存</button>
+		<button onclick="myClick2()">显示</button>
+		<button onclick="remove()">删除</button>
+		<hr />
+		<hr />
+		<hr />
+		<script type="text/javascript">
+			$('#username').val(sessionStorage.getItem('k_username'))
+			$('#password').val(sessionStorage.getItem('k_password'))
+			function myClick1(){
+				var username = $('#username').val()
+				var password = $('#password').val()
+				
+		//		 sessionStorage.getItem---------存储在缓存里，页面关闭后数据清除
+				sessionStorage.setItem('k_username',username)
+				sessionStorage.setItem('k_password',password)
+				alert('存储成功')
+			}
+			
+			function myClick2(){
+				alert(sessionStorage.getItem('k_username') + sessionStorage.getItem('k_password'))
+			}
+			
+			function remove(){
+				sessionStorage.removeItem('k_username')
+//				sessionStorage.clear()
+			}
+		</script>
+		
+		
+		
+		
+		
+		
+		2222222222222222222222222222222222222222222222222222222222222222222
+		<p>localStorage-----------存储在本地文件中，浏览器关闭后依然存在</p>
+		<input type="text" name="" id="username2" />
+		<input type="text" name="" id="password2" />
+		<button onclick="myClick3()">储存</button>
+		<button onclick="myClick4()">显示</button>
+		<button onclick="remove2()">删除</button>
+		
+		<hr />
+		
+		<script type="text/javascript">
+			$('#username2').val(localStorage.getItem('k_username2'))
+			$('#password2').val(localStorage.getItem('k_password2'))
+			
+			function myClick3(){
+				var username2 = $('#username2').val()
+				var password2 = $('#password2').val()
+				
+		//		 localStorage-----------存储在本地文件中，浏览器关闭后依然存在
+				alert('存储成功')
+				localStorage.setItem('k_username2',username2)
+				localStorage.setItem('k_password2',password2)
+			}
+			
+			function myClick4(){
+				alert(localStorage.getItem('k_username2') + localStorage.getItem('k_password2'))
+				
+				
+				console.log(localStorage.k_username2)
+			}
+			
+			function remove2(){
+				localStorage.removeItem('k_username2')
+			}
+		</script>
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		<p>根据储存时的时间戳和当前时间戳判断是否过期</p>
+		<button onclick="set('aaa')">储存</button>
+		<button onclick="get('aaa', 2000)">两秒后过期</button>
+		
+		<script type="text/javascript">
+			// 储存
+		    function set(key){
+		    	var aaa = [
+		    			{'name':'111',"user":'222'},
+		    			{'name':'333',"user":'444'},
+		    			{'name':'555',"user":'666'}
+		    			]
+		    	var bbb = 11111
+		    	
+		    	// 上传时的时间戳
+		        var curTime = new Date().getTime();
+		        
+		        //************************反序列化为 json 数据	
+		        localStorage.setItem(key, JSON.stringify({data1:aaa, data2:bbb, time:curTime}));
+		        
+		    }
+		    
+		    // 显示
+		    function get(key, exp){
+		    	var data = localStorage.getItem(key)
+		    	
+		    	//************序列化为 js 数据
+		    	var dataObj = JSON.parse(data)
+		    	
+				// 当前时间戳减去储存时时间戳判断是否过期
+		    	if (new Date().getTime() - dataObj.time > exp ) {
+		    		console.log('过期')
+		    	} else{
+		    		console.log(dataObj.data1[0].name)
+		    	}
+		    }
+	 	</script>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYh4E html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+		<style type="text/css">
+			.aaa{
+				width: 550px;
+				margin: 0 auto;
+			}
+			
+			
+			textarea{
+				width: 100%;
+				height: 80px;
+				resize: none;     /*禁止调大小*/
+				font:20px/30px 微软雅黑;
+				border-radius: 20px;
+				padding:15px;
+			}
+			textarea:focus{
+				outline: none;    /*点击文本域时表单轮廓不会显示*/
+			}
+			
+			button{
+				width: 80px;
+				height: 35px;
+				margin: 20px 10px;
+				font: 20px 宋体;
+				background: #ccc;
+			}
+			.show{
+				height: 50px;
+				border: 1px solid #242822;
+				border-radius: 10px;
+				padding: 10px;
+				margin-bottom: 15px;
+			}
+			.close{
+				float: right;
+				margin: 10px;
+				font-size: 30px;		
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<h3>事件委派</h3>
+		<h4>live()----------现在的和未来的都绑上事件</h4>
+		<h4>die()-----------现在的和未来的事件都删掉</h4>
+		<h3>$(document).on('click','***',function(){})----------1.9之后不支持live、die，使用on、off</h3>
+		
+		<div class="aaa">
+			<div class="bbb">
+				<textarea></textarea>
+			</div>
+			<button>确定</button>
+		</div>
+		
+		
+		<script type="text/javascript">
+			$('textarea').focus(function(){
+				this.value=''
+			})
+			
+			$('button').click(function(){
+				val=$('textarea').val();
+				str="<div class='show'><div class='close'>&times;</div>"+val+"</div>";
+				
+				$('.aaa').append(str)
+			})
+
+//			$('.close').live('click',function(){
+//				$(this).parent().hide(1000)
+//			})
+			
+			$(document).on('click','.close',function(){
+				$(this).parent().hide(1000)
+			})
+		</script>
+		
+		<hr />
+		<hr />
+		
+	</body>
+</html>

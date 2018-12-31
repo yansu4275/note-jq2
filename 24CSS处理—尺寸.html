@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h3>尺寸</h3>
+		<h4>height()</h4>
+		<h4>width()</h4>
+		<img src="img/0.png" class="aaa" style="background: orange;"/>
+		<span id="aaa">图片宽高为：</span>
+		<script type="text/javascript">
+			w=$('.aaa').width()
+			h=$('.aaa').height()
+			$('#aaa').append(h + '|' + w) 
+		</script>
+		<hr />
+		<!--*********************************************************************-->
+		
+		<hr />
+		<!--*********************************************************************-->
+		
+		<h4>innerHeight()---------------本身+内边距</h4>
+		<h4>innerWidth()</h4>
+		<img src="img/1.png" class="bbb" style="background:#ccc;padding: 20px;"/> 
+		<span id="bbb"></span>
+		<script type="text/javascript">
+			inw=$('.bbb').innerWidth()
+			inh=$('.bbb').innerHeight()
+			$('#bbb').append(inw + '|' + inh)
+			
+		</script>
+		<hr />
+		<hr />
+		<!--*********************************************************************-->
+		
+		<h4>outerHeight()-----------------本身+内边距+边框</h4>
+		<h4>outerWidth()</h4>
+		<img src="img/2.png" class="ccc" style="background:#ccc;padding: 20px;border: 20px solid red;"/> 
+		<span id="ccc"></span> 
+		<script type="text/javascript">
+			ouw=$('.ccc').outerWidth()
+			ouh=$('.ccc').outerHeight()
+			$('#ccc').append(ouw + '|' + ouh)
+			
+		</script>
+		<hr />
+		<!--*********************************************************************-->
+	</body>
+</html>

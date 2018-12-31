@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+		<style type="text/css">
+			.bbb{
+				height: 300px;
+				width: 600px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="aaa">
+			<div class="bbb">
+				<img src="img/a.jpg"/>
+			</div>
+			<button class="toLeft"><<</button>
+			<button class="toRight">>></button>
+		</div>
+		<script type="text/javascript">
+			$('.toLeft').click(function(){
+				$('img').animate({
+					'margin-left':'-=300px',
+					'opacity':0.5
+					},300,function(){
+						$('body').css({'background':'#ccc'})
+					})
+			})
+			$('.toRight').click(function(){
+				$('img').animate({
+					'margin-left':'+=300px',
+					'opacity':1
+				},300,function(){
+					$('body').css({'background':''})
+				})
+			})
+		
+		</script>
+	</body>
+</html>

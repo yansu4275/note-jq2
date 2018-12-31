@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+	</body>
+</html>
+
+<script type="text/javascript">
+	$('#mymodal_sign_submit').click(function(){
+	    var sing_content=$('#mymodal_sign .modal-dialog .modal-content textarea').val();
+		$.ajax({
+			type:"post",
+			url:"/user/editsign",
+			async:true,
+
+			dataType:'json',
+
+			data:{
+				user_sign:sing_content
+			},
+
+			success: function(result){
+				console.log(result);
+				console.log(result.success);
+
+				if(result.success == true){
+                    $('.name-2').html(result.message)
+                    $('#mymodal_sign .cancel').click()
+                    $('#mymodal_sign .sign_error').hide()
+
+				}else{
+                    $('#error_div').html(result.message)
+                    $('#mymodal_sign .sign_error').show()
+				}
+			},
+
+			error: function(er){
+				console.log(er)
+
+			}
+		});
+	})
+</script>

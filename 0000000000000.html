@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+		<style type="text/css">
+			@keyframes myfirst1{
+				from{
+					transform: rotate(-30deg);	
+				}
+				to{
+					transform: rotate(30deg);
+				}
+			}
+			
+			@keyframes myfirst2{
+				from{
+					top: -150px;
+				}
+				to{
+					top: 800px
+				}
+			}
+
+			.aaa{
+				width: 500px;
+				height: 800px;
+				outline: 1px #242822 solid;
+				position: relative;
+				margin-top: 200px;
+			}
+			span{
+				width: 100px;
+				height: 150px;
+				outline: 1px #242822 solid;
+				background: #ccc;
+				position: absolute;
+				top: -150px;
+			}
+			
+			
+			span{
+				transform-origin:top center;
+				animation: myfirst1 1s ease infinite alternate, 
+						   myfirst2 5s linear infinite;
+				
+				animation-play-state: paused;
+				
+			}
+			img{
+				width: 100%;
+			}
+			
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="aaa">
+			<span class="bbb"><img src="img/d566904862677544f82b1c613d98275b_2.png"/></span>
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		var allW = $('.aaa').width()
+		var allH = $('.aaa').height()
+		
+			firstP=Math.random() * (allW - 50)
+			//摆动 + 下坠，下坠完了后自动回到top：-150px
+			$('span').css('animation-play-state','running')
+		
+					 $('span').css({'left':firstP + 'px'})
+
+		
+
+		
+		
+//		左右随机飘动
+		
+		setInterval(function(){
+			n = Math.random()
+		
+			if (n<0.5) {
+				v = 160
+			} else{
+				v= -160
+			}
+		
+			$('span').animate({
+				'margin-left':v
+			},2000)
+		})
+	})
+</script>

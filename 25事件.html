@@ -1,0 +1,77 @@
+<!DOCTYh4E html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+	</head>
+	<body>
+		<h2>事件</h2>
+		<hr />
+		<!--*****************************************************************-->
+		
+		<h3>页面载入</h3>
+		<h4>$(document).ready(fn)</h4>
+		<h4>$(fn)</h4>
+		<p>资源加载完毕—————————$(wndow).load</p>
+		<p>DOM加载完毕————————把js放在body后面或者————$(function){}★★</p>
+		<hr />
+		<hr />
+		<!--**********************************************************************-->
+		
+		<h3>事件处理</h3>
+		<h4>bind()----on()------------------添加事件</h4>
+		<h4>unbind()----off()---------------解除事件，括号为空表明删除所有事件</h4>
+		<h4>one()-----------------------事件只能触发一次</h4>
+		<img src="img/1.png" class="aaa"/>
+		<button class="bbb">添加事件</button>
+		<button class="bbb">解除事件</button>
+		<button class="bbb">点赞<span>10</span></button>
+		
+		<script type="text/javascript">
+			//添加
+			i=0;
+			$('.bbb').eq(0).click(function(){
+				$('.aaa').on('click',function(){
+					if (i%2==0) {
+//						this.src="img/0.png"
+						$(this).attr({'src':'img/0.png'})
+					} else{ 
+						this.src="img/1.png"
+					}
+					i++
+				}) 
+			})
+			
+			//解除
+			$('.bbb').eq(1).click(function(){
+				$('.aaa').off('click')
+			})
+			
+			//只能点一次
+			$('.bbb').eq(2).one('click',function(){
+				val=parseInt($('span').html())+1
+				$('span').html(val)
+				$(this).attr('disabled',true)
+			})
+		</script>
+		<hr />
+		<hr />
+		<!--**********************************************************************-->
+		
+		
+		<h3>事件委派</h3>
+		<h4>live()</h4>
+		<h4>die()</h4>
+		
+		<hr />
+		<hr />
+		
+
+		<h3>事件切换</h3>
+		<h4>hover()</h4>
+		<h4>toggle()</h4>
+		<hr />
+		<hr />
+	</body>
+</html>

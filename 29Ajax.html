@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<p>注册</p>
+		<form action="" method="post">
+			
+			用户名：<input type="text" value=""/ class="username"><br />
+			密码：<input type="text" value="" class="password"/><br />
+			确认密码：<input type="text" value="" class="repassword"/><br />
+			<input type="button" value="提交" class="submit"/>
+			<input type="button" value="清除" class="reset"/>
+		</form>
+	</body>
+</html>
+		<script type="text/javascript">
+//			$('.del').click(function(){
+//				id=this.id;
+//				obj=$(this);
+//				
+//				$.get('delete.php',{id:id},function(r){
+//					if (r==1) {
+//						obj.parent().parent().slideDown(300)
+//					}
+//				})
+//			})
+
+
+			$('.submit').click(function(){
+				
+				$.ajax({
+					url:'../29.php',
+					type:"POST",
+					dataType:'json', 
+					
+					//获取表单中输入的内容传给后台
+					data:{
+						username:$('.username').val(),
+						password:$('.password').val(),
+						repassword:$('.repassword').val(),
+					},
+					
+					//传输成功，result：后台传输的内容
+					success: function(result){
+						console.log(result);
+					},
+					//传输失败
+					error: function(er){
+						console.log(er)
+						
+					}
+				});
+				
+			})
+			$('.reset').click(function(){
+				$('form').css({'background':'red'})
+			})
+
+
+			
+		</script>

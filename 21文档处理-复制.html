@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h3>复制</h3>		
+		<h4>clone()-----------------不克隆原标签的事件，克隆品点击无效</h4>
+		<img src="img/0.png" class="aaa"/>
+		<script type="text/javascript">
+			$('.aaa').click(function(){
+				$(this).after($(this).clone())
+			})
+			
+		</script>
+		<hr />
+		<!--***********************************************************************-->
+		
+		<h4>clone(true)-------------连事件一起克隆</h4>
+		<img src="img/1.png" class="bbb"/>
+		<script type="text/javascript">
+			$('.bbb').click(function(){
+				$(this).after($(this).clone(true))
+			})
+			
+		</script>
+		<hr />
+		<!--***********************************************************************-->
+		
+	</body>
+</html>

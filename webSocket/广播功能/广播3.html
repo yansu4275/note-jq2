@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>页面3</p>
+		<input type="text" id="aaa">	
+	</body>
+</html>
+<script type="text/javascript">
+	var socket = new WebSocket('ws://192.168.0.143:3003')
+
+	// 连接到服务器
+	socket.onopen = function(){
+		console.log("客户端连接到服务器")
+	}
+
+	// 接收服务端的消息
+	socket.onmessage = function(ev){
+		console.log(ev.data)
+	}
+
+	var aaa = document.getElementById('aaa')
+	// 点击 input 向服务端发送数据
+	aaa.onchange = function(){
+		socket.send(this.value)
+	}
+</script>

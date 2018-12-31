@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>
+			1：创建一个 node_modules 文件夹，npm install ws 安装模块
+		</p>
+		
+		<p>
+			2：创建 server.js 放置 node.js代码
+		</p>
+		
+		<p>
+			3：运行server.js，（node server.js）
+		</p>
+		<input type="text" id="aaa">
+
+		<button onclick="bbb()">断开连接</button>
+	</body>
+</html>
+<script type="text/javascript">
+	var ws = new WebSocket('ws://192.168.0.143:3002')
+
+	// 连接到服务器
+	ws.onopen = function(){
+		console.log("客户端连接到服务器")
+	}
+
+	// 接收服务端的消息
+	ws.onmessage = function(ev){
+		console.log(ev.data)
+	}
+
+	var aaa = document.getElementById('aaa')
+	// 点击 input 向服务端发送数据
+	aaa.onchange = function(){
+		ws.send(this.value)
+	}
+	
+	
+	
+</script>

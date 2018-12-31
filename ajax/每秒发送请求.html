@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		
+		<audio id="audio1" src="img/3min.mp3" controls>
+		  	Your browser does not support HTML5 video.
+		</audio>
+		
+		<audio id="audio2" src="img/end.mp3" controls>
+		  	Your browser does not support HTML5 video.
+		</audio>
+		
+		<script>
+			// 加载完成的当前时间，定值		  	
+			nowTime =  (new Date()).getTime()
+			// 模拟获取到的后台数据，endtime 根据上面的网页加载时的时间戳定义结束时间戳
+			result = {indent:1, endTime: nowTime + 10000, }
+			  	
+			function audio_timer(){
+				timer=setInterval(function(){
+					aaa(result)
+				},1000)
+			}
+			
+			// 定义布尔值，用于判断音频是否播放
+			audio_start_1 = false;
+			audio_start_2 = false;
+			
+			function aaa (result) {
+				console.log('一秒运行一次')
+				
+				//有无订单
+				var indent = result.indent
+				
+				//后台传过来的结束时间
+				var endTime	= result.endTime
+				
+				//当前时间，函数在定是其中调用，当前时间不停增加
+				var nowTimer = (new Date()).getTime()
+				
+				//剩余时间
+				var remainingTime = parseInt((endTime - nowTimer)/1000) 
+				
+				// 有订单时						
+				console.log('剩余时间：' + remainingTime)
+				if (indent) {
+					if (remainingTime == 3) {
+						
+						if (audio_start_1==false) {
+							console.log('三秒音乐播放')
+							$('#audio1').get(0).play()					
+							audio_start_1 = true
+						} 
+						
+					} else if (remainingTime == 0) {
+						if (audio_start_2==false) {
+							console.log('结束音乐播放')
+							$('#audio2').get(0).play()
+							audio_start_2 = true
+						} 
+					} 
+					
+				} 
+			}
+			  	
+		 	$(function(){
+		  		audio_timer()
+		  	}) 	
+		  	
+		</script>
+		
+		
+		 
+		
+		
+	</body>
+</html>

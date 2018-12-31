@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h4>:has()---------------------------------------寻找有里面某个标签的标签</h4>
+		<div class="aaa">
+			<span>11111111111111111111111111111</span><hr />
+			<a href="">111111111111111111111111111111</a>
+		</div>
+		<script type="text/javascript">
+			$('.aaa:has(span)').css({'background':'orange'})
+		</script>
+		<hr />
+		<!--********************************************************-->
+		
+		<h4>:parent-----------------寻找有子标签或者文本的标签，包括空格</h4>
+		<div class="bbb">
+			<p>2222222222222222222222222222222222</p>
+			<a href="">222222222222222222222222222222222222222</a>
+		</div>
+		<script type="text/javascript">
+			$('p:parent').css({'background':'#ccc'})
+		</script>	
+		<hr />
+		<!--************************************************************************-->
+		
+		<h4>:empty------------------------寻找内容为空的标签</h4>
+		<p class="ccc"></p>
+		<p class="ccc">333333333333333333333333333333333333333333333</p>
+		<script type="text/javascript">
+			$('.ccc:empty').html('这原本是个内容为空的元素')
+		</script>
+	</body>
+</html>

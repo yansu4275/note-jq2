@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+		
+		<style type="text/css">
+			/*audio{
+				display: none;
+			}*/
+		</style>
+		
+	</head>
+	<body>
+		
+		<p>时间抽以秒为单位</p>
+		<h4>ajx 获取本地 json 使用 get</h4>
+		<audio id="audio1" src="img/3min.mp3" controls>
+		  	Your browser does not support HTML5 video.
+		</audio>
+		
+		<audio id="audio2" src="img/end.mp3" controls>
+		  	Your browser does not support HTML5 video.
+		</audio>
+		
+		
+		
+
+	</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		audio_time()
+	})
+	var audio_1s
+	
+	// 创建定时器数组
+	var timeArray = [];
+	
+	function audio_time(){
+		audio_1s = setInterval(function(){
+			console.log('ajax开启')
+			audio_ajax()
+		},1000)
+		
+		// 每执行一次定时器就放入数组中
+		timeArray=timeArray.concat(audio_1s)
+	}
+	
+	
+	
+	function audio_ajax(){
+		console.log('0000')
+		$.ajax({
+			type:"get",
+			url:"audio.json",
+			async:false,
+			dataType:'json',
+			success:function(data){
+				endTime = data.end_time
+				nowTime = data.nowtime
+				remainingTime = endTime - nowTime
+				
+				console.log('剩余时间：'+remainingTime)
+				if (remainingTime >= 0) {
+					console.log('定时器关闭' + audio_1s)
+					
+					// 清除定时器数组,清除所有定时器
+					if(timeArray){
+					   	for(i=0;i<timeArray.length;i++){
+					    	clearInterval(timeArray[i]);
+					   	}
+					}
+					
+					audio_play()
+				}
+			}
+		});
+	}
+	
+	
+	function audio_play(){
+//				console.log(remainingTime)
+		
+		if (remainingTime >= 10) {
+			setTimeout(function(){
+				console.log('第一段-----播放')
+			
+				$('#audio1').get(0).play()
+				$('#audio1').bind('ended' , function(){
+					console.log('第一段-----结束')
+				}) 
+			},remainingTime*1000 - 10000)
+		}
+		
+		setTimeout(function(){
+			console.log('第二段-----播放')
+			
+			$('#audio2').get(0).play()
+			$('#audio2').bind('ended' , function(){
+				console.log('第二段-----结束，重启定时器ajax')
+				audio_time()
+			}) 
+		},remainingTime*1000)
+	
+	}
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--由于移动端和PC端页面大小不一样，需要适应移动端，要在head添加-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+		
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body> 
+		<h3>jq 各种高度</h3>
+		<p class="aaa">浏览器时下窗口可视区域高度——$(window).height()——</p>
+		<p class="bbb">浏览器时下窗口文档的高度——$(document).height()——</p>
+		<p class="ccc">浏览器时下窗口文档body的高度——$(document.body).height()——</p>
+		<p class="ddd">浏览器时下窗口文档body的总高度,包括border、padding、margin——$(document.body).outerHeight(true)——</p>
+		<p>屏幕已滚动的高度——$(window).scrollTop()——
+			<span class="eee"></span>
+			
+		</p>
+		
+		<p>$(window).rsize()---------监听窗口变化</p>
+        
+		<hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr /><hr />
+		<hr />
+		<hr />
+		
+	</body>
+</html>
+<!-------------------------------jq-->
+<script type="text/javascript">
+	
+	$(window).scrollTop(100)
+	
+	
+	a=$(window).height(); 				 //浏览器时下窗口可视区域高度 
+	b=$(document).height(); 			 //浏览器时下窗口文档的高度 
+	c=$(document.body).height();		 //浏览器时下窗口文档body的高度 
+	d=$(document.body).outerHeight(true);//浏览器时下窗口文档body的总高度 包括border padding margin 
+	e=$(window).scrollTop();             //屏幕以滚动的宽高
+	
+	
+	
+	$('.aaa').append(a);
+	$('.bbb').append(b);
+	$('.ccc').append(c);
+	$('.ddd').append(d);
+
+	$(document).scroll(function(){
+		$('.eee').html($(window).scrollTop())
+	})
+</script>
+
+<!----------------------------------js-->
+<script type="text/javascript">
+	document.body.clientHeight;      //网页可见区域高(body)
+	document.body.offsetHeight;      //网页可见区域宽(body)，包括border、margin等
+	document.body.scrollHeight;      //网页正文全文高，包括有滚动条时的未见区域
+	document.body.scrollTop;         //网页被卷去的Top(滚动条)
+	document.body.scrollLeft;        //网页被卷去的Left(滚动条)
+	window.screenTop;                //浏览器距离Top
+	window.screenLeft;               //浏览器距离Left
+	window.screen.width;             //屏幕分辨率的宽
+	window.screen.availWidth;        //屏幕可用工作区的宽
+	
+	screen.height;					 //显示器分辨率，只能用JavaScript代码获取
+	screen.width;
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="aaa">1111111111111</div>
+		<p>
+			<button class="btn">按钮</button>
+		</p>
+		
+	</body>
+</html>
+<script src="js/jquery.min-1.8.js"></script>
+<script type="text/javascript">
+	
+	var aaa = $('.aaa').html()
+	
+	$('.btn').click(function(){
+		ys_ajax(aaa)
+	})
+
+	function ys_ajax(i){
+		$.ajax({
+			url: '',
+			type: 'post',
+			dataType: 'json',
+			data: {'向后台传的参数':i},
+			async:false,
+            success:function(result){
+				console.log(result)
+            }    
+		})
+	}
+	
+		
+</script>

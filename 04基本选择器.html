@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h4>:first----------------------------------第一个</h4>
+		<p class="aaa">111111111</p>
+		<p class="aaa">111111111</p>
+		<script type="text/javascript">
+			$('.aaa:first').css({'color':'red'})
+		</script>
+		<hr />
+		<!--**********************************************************************-->
+		
+		<h4>:last----------------------------------最后一个</h4>
+		<p class="bbb">222222222</p>
+		<p class="bbb">222222222</p>
+		<script type="text/javascript">
+			$('.bbb:last').css({'color':'blue'})
+		</script>
+		<hr />
+		<!--**********************************************************************-->
+		
+		<h4>:not------------------------------------除了</h4>
+		<p class="ccc">3333333333</p>
+		<p class="ccc">3333333333</p>
+		<p class="ccc">3333333333</p>
+		<script type="text/javascript">
+			$('.ccc:not(:first)').css({'background':'orange'})
+		</script>
+		<hr />
+		<!--**********************************************************************-->
+		
+		<h4>:even----------------------------------偶数（从 0 开始）</h4>
+		<p class="ddd">4444444444444</p>
+		<p class="ddd">4444444444444</p>
+		<p class="ddd">4444444444444</p>
+		<p class="ddd">4444444444444</p>
+		<script type="text/javascript">
+			$('.ddd:even').css({'background':'#ccc'})
+		</script>
+		<hr />
+		<!--**********************************************************************-->
+		
+		<h4>:odd----------------------------------奇数</h4>
+		<p class="eee">5555555555555</p>
+		<p class="eee">5555555555555</p>
+		<p class="eee">5555555555555</p>
+		<p class="eee">5555555555555</p>
+		<script type="text/javascript">
+			$('.eee:odd').css({'background':'orange'})
+		</script>
+		<hr />
+		<!--**********************************************************************-->
+				
+		<h4>:eq()---------------------------------第几个，从 0 开始</h4>
+		<p class="fff">66666666666666</p>
+		<p class="fff">66666666666666</p>
+		<p class="fff">66666666666666</p>
+		<script type="text/javascript">
+			$('.fff:eq(1)').css({'color':'red'})
+		</script>
+		<hr />
+		<!--**********************************************************************-->
+		
+		<h4>:gt()-----------------------------------大于</h4>
+		<p class="ggg">77777777777777</p>
+		<p class="ggg">77777777777777</p>
+		<p class="ggg">77777777777777</p>
+		<p class="ggg">77777777777777</p>
+		<script type="text/javascript">
+			$('.ggg:gt(1)').css({'background':"skyblue"})
+		</script>
+		<hr />
+		<!--**********************************************************************-->
+		
+		<h4>:lt()------------------------------------小于</h4>
+		<p class="hhh">888888888888888</p>
+		<p class="hhh">888888888888888</p>
+		<p class="hhh">888888888888888</p>
+		<p class="hhh">888888888888888</p>
+		<script type="text/javascript">
+			$('.hhh:lt(2)').css({'background':'orange'})
+		</script>
+	</body>
+</html>

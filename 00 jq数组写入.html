@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+		<style type="text/css">
+			.aaa{
+				color: red;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<ul>
+			<li>
+				<p>姓名：<span class="name"></span></p>
+				<p>职业：<span class="job"></span></p>
+			</li>
+			<!--<li>
+				<p>姓名：<span class="name"></span></p>
+				<p>职业：<span class="job"></span></p>
+			</li>
+			<li>
+				<p>姓名：<span class="name"></span></p>
+				<p>职业：<span class="job"></span></p>
+			</li>
+			<li>
+				<p>姓名：<span class="name"></span></p>
+				<p>职业：<span class="job"></span></p>
+			</li>-->
+			
+			
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		var aaa = [
+			{name:'user1', job:'job1'},
+			{name:'user2', job:'job2'},
+			{name:'user3', job:'job3'},
+			{name:'user4', job:'job4'},
+		]
+		
+		// 设置空数组方法添加
+//		var list = ''
+//		for (let i=0; i<aaa.length; i++) {
+//			list += `<li>
+//				<p>姓名：<span class="name">${aaa[i].name}</span></p>
+//				<p>职业：<span class="job">${aaa[i].job}</span></p>
+//			</li>`
+//		}
+//		$('ul').html(list)
+
+
+		// 创建新标签方法，对应 js 的 document.createElement('li')
+		for (var i=0; i<aaa.length; i++) {
+			var oli = $("<li class='aaa'></li>")
+			oli.html(
+				`<p>姓名：<span class="name">${aaa[i].name}</span></p>
+				<p>职业：<span class="job">${aaa[i].job}</span></p>`
+			)
+			$('ul').append(oli)
+		}
+		
+		
+	})
+</script>

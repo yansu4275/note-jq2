@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+		<style type="text/css">
+			.aaa{
+				width: 300px;
+				height: 300px;
+				background: red;
+			}
+			.bbb{
+				width: 200px;
+				height: 200px;
+				background: yellow;
+			}
+			.ccc{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="aaa">
+			<div class="bbb">
+				<div class="ccc">
+					
+				</div>
+			</div>
+		</div>
+		
+		<p>preventDefault()-----------阻止默认事件</p>
+		<p>stopPropagation()----------阻止冒泡</p>
+		<h4>有的时候阻止冒泡没效果就要用阻止默认事件，比如弹出层底层滑动问题</h4>
+	</body>
+</html>
+
+
+<script type="text/javascript">
+	$('.aaa').click(function(){
+		console.log('red')
+	})
+	$('.bbb').click(function(){
+		console.log('yellow')
+	})
+	$('.ccc').click(function(){
+		event.stopPropagation();
+		console.log('blue 阻止冒泡，只显示自己')
+	})
+	$('.ccc').contextmenu(function(){
+		event.preventDefault();
+		console.log('阻止了本身的右击默认事件')
+	})	
+</script>

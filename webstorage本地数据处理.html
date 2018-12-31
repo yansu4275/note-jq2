@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+	</head>
+	<body>
+		<p>sessionStorage---------存储在缓存里，页面关闭后数据清除</p>
+		<input type="text" name="" id="username" />
+		<input type="password" name="" id="password" />
+		<input type="button" name="" id="button1" value="储存" onclick="myClick1()" />
+		<input type="button" name="" id="button2" value="显示" onclick="myClick2()" />
+		<hr />
+		
+		
+		<p>localStorage-----------存储在本地文件中，浏览器关闭后依然存在</p>
+		<input type="text" name="" id="username2" />
+		<input type="password" name="" id="password2" />
+		<input type="button" name="" id="button3" value="储存" onclick="myClick3()" />
+		<input type="button" name="" id="button4" value="显示" onclick="myClick4()" />
+	</body>
+</html>
+<script type="text/javascript">
+	function myClick1(){
+		var username = $('#username').val()
+		var password = $('#password').val()
+		
+//		 sessionStorage---------存储在缓存里，页面关闭后数据清除
+		sessionStorage.setItem('k_username',username)
+		sessionStorage.setItem('k_password',password)
+		alert('存储成功')
+	}
+	
+	function myClick2(){
+		alert(sessionStorage.getItem('k_username') + sessionStorage.getItem('k_password'))
+	}
+	
+	
+	
+	function myClick3(){
+		var username2 = $('#username2').val()
+		var password2 = $('#password2').val()
+		
+//		 localStorage-----------存储在本地文件中，浏览器关闭后依然存在
+		localStorage.setItem('k_username2',username2)
+		localStorage.setItem('k_password2',password2)
+		alert('存储成功')
+	}
+	
+	function myClick4(){
+//		localStorage.removeItem('k_username2')
+		alert(sessionStorage.getItem('k_username2') + sessionStorage.getItem('k_password2'))
+	}
+</script>

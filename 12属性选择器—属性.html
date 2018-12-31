@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h3>属性</h3>
+		<h4>attr()--------------------获取属性</h4>
+		<img src="img/0.png" class="aaa"/>
+		<p class="ccc">000------</p>
+		<script type="text/javascript">
+			$('.ccc').append($('.aaa').attr("src"));
+//			$('.aaa').attr("src").clone().appendTo('.ccc')
+		</script>
+		<hr />
+
+        <!--***********************************************************************-->
+
+
+        <h4>attr({})------------------设置属性</h4>
+		<input type="button" name="" id="" value="点击切换" class="bbb"/>
+		<script type="text/javascript">
+			$('.bbb').toggle(
+				function(){
+					$(this).attr({'value':'切换点击','tilte':'text'})
+				},function(){
+					$(this).attr({'value':'点击切换'})
+			})
+		</script>
+		<hr />
+		<!--*********************************************************************-->
+		
+		
+        <h4>attr({})------------------设置index、value参数</h4>
+		<p class="eee" title="0000">0000000</p>
+		<p class="eee" title="0000">0000000</p>
+		<p class="eee" title="0000">0000000</p>
+		<p class="eee" title="0000">0000000</p>
+		
+		<script type="text/javascript">
+		    $('.eee').attr('title',function(index,value){
+				return '原来title：'+ value + '------现在title：我是'+ (index+1)+"号域名"
+			})
+		</script>
+	</body>
+</html>

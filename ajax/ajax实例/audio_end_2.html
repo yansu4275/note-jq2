@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		
+		<audio id="audio1" src="img/3min.mp3" controls>
+		  	Your browser does not support HTML5 video.
+		</audio>
+		
+		<audio id="audio2" src="img/end.mp3" controls>
+		  	Your browser does not support HTML5 video.
+		</audio>
+		
+	</body>
+</html>
+		
+		
+		<script>
+			$(function(){
+				audio_time()
+			})
+			 
+
+			var indent = false;
+// ajax请求函数
+			function audio_ajax(){
+				$.ajax({
+					type:"get",
+					url:"http://192.168.0.127:9001/api/getBoxtimer?id=7",
+					async:false,
+					dataType:'json',
+					success:function(data){
+						console.log(data.room_id)
+						if (data.room_id) {
+							indent = true;
+						} else{
+							indent = false
+						}
+						endTime = data.end_time;
+						nowTime = data.nowtime
+						remainingTime = endTime - nowTime
+					}
+				});
+			}
+			
+// 每秒执行一次，发送请求，判断			
+			function audio_time(){ 
+				audio_1s = setInterval(function(){
+					console.log('indent:' + indent)
+					
+					audio_ajax()
+					if (indent == true) {
+						console.log('执行播放函数，关闭定时器')
+						console.log(indent)
+						
+						audio_indent()
+						clearInterval(audio_1s)
+						
+						console.log('剩余时间：' + remainingTime)
+					}
+				},1000)
+			} 
+			
+// 音频播放			
+			function audio_indent(){
+				audio1_time = setTimeout(function(){
+					console.log('第一段播放')
+					$('#audio1').get(0).play()
+					 
+					var aud1 = document.getElementById("audio1");
+					aud1.onended = function() {
+					    console.log("第一段播放结束");
+					};
+					
+				}, remainingTime*1000 - 60000) 
+			           
+			           
+				audio2_time = setTimeout(function(){
+					console.log('使用结束')
+					$('#audio2').get(0).play()
+					
+					var aud2 = document.getElementById("audio2");
+					aud2.onended = function() {
+					    console.log("音频播放结束，修改indent，开启定时器");
+					    indent = false
+					    audio_time() 
+					};
+					 
+				}, remainingTime*1000) 
+			}
+		</script>
+		
+
+
+
+
+

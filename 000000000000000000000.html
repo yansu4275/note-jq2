@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+		
+		<style type="text/css">
+			.aaa{
+				width: 400px;
+				height: 600px;
+				border: 1px #242822 solid;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="aaa">
+			<div id="x" style="width:10px; height:10px; background-color:red; position:absolute;"></div>
+			
+		</div>
+	</body>
+</html>
+ 
+<script type="text/javascript">
+(function() {
+    var l = 0;
+    var d = 50;
+    var lmax = 8000;
+    var tmax = 200;
+    var o = document.getElementById('x');
+    setInterval(function() {
+        ++l;
+        l %= lmax;
+        x.style.top = l + 'px';
+        x.style.left = Math.floor(tmax + tmax * Math.sin(l / d)) + 'px';
+    }, 50);
+})();
+</script>

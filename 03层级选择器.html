@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h4>ancestor descendent------祖先、后代</h4>
+		<div class="aaa">
+			<div>
+				<p>1111111111111111111111</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$('.aaa p').css({'color':'red'})
+		</script>
+		<hr />
+		<!--************************************************************************-->
+		
+		<h4>parent>child--------父、子</h4>
+		<div class="bbb">
+			<p>222222222222222222222222222</p>
+		</div>
+		<script type="text/javascript">
+			$('.bbb>p').css({'color':'blue'})
+		</script>
+		<!--*********************************************************************-->
+		
+		<h4>prev+next--------后面的一个标签</h4>
+		<p class="ccc">cccccccccc</p>
+		<p>333333333333333333333</p>
+		<p>333333333333333333333</p>
+		<script type="text/javascript">
+			$('.ccc+p').css({'background':'orange'})
+		</script>
+		<hr />
+		<!--*********************************************************************-->
+		
+		<h4>prev~siblings------后面的所有同级的类</h4>
+		<p class="ddd">ddddd</p>
+		<p>4444444444444444444</p>
+		<p>4444444444444444444</p>
+		<div class="">
+			<p>4444444444444444444</p>
+		</div>
+		
+		<script type="text/javascript">
+			$('.ddd~p').css({'background':'#ccc'})
+			
+		</script>
+	</body>
+</html>

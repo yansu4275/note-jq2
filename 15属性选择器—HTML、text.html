@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h3>HTML 代码</h3>
+		<h4>html()----------------------------获取标签的html值</h4>
+		<h4>html(val)-------------------------向标签的中添加html值</h4>
+		
+		<p class="aaa" style="color: red;">11111111111111111111111111111</p>
+		<button class="ccc">按钮</button>
+		<p class="bbb"></p>
+		<script type="text/javascript">
+			$('.ccc').click(function(){
+				val=$('.aaa').html();
+				$('.bbb').html(val)
+			})
+		</script>
+		<hr />
+		
+		<h3>文本</h3>
+		<h4>text()</h4>
+		<h4>text(val)</h4>
+	</body>
+</html>

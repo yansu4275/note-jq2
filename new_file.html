@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+		<style type="text/css">
+			.aaa{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="aaa" id="aaa" value="" />
+		<script type="text/javascript">
+			$('#aaa').input(function(){
+				console.log(this.value)
+			})
+		</script>
+		
+		
+		
+		
+		
+		<div style="width: 100px; height: 100px; background: #CCCCCC;">00000000</div>
+		<p class="aaa">111111</p>			
+		<p class="aaa">111111</p>			
+		<p>111111</p>			
+		<p>111111</p>			
+		<p>111111</p>			
+	</body>
+</html>
+
+<script type="text/javascript">
+	var p = $('p').length
+	console.log(p)
+
+	var n = 0;
+	$('p').each(function(i){
+		var a = $(this).is(':hidden')
+		if (a) {
+			n = n+1
+		}
+	})
+	console.log(n)
+	
+	
+	
+	
+</script>

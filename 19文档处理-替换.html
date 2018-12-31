@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h3>替换</h3>
+		<h4>replaceWith()-----------------------将前面的用后面的替换</h4>
+		<span class='aaa'>11111111111111111111111111111111111</span>
+		<a href=""></a>
+		<script type="text/javascript">
+			$('span').replaceWith('<a href="">1111111111</a>')
+		</script>
+		<hr />
+		<!--*********************************************************************-->
+		
+		
+		<h4>replaceAll---------------------------用前面的替换后面的</h4>
+		<i>22222222222222222222222222222</i>
+		<script type="text/javascript">
+			$('<b>2222222222222</b>').replaceAll('i')
+		</script>
+		<hr />
+		<hr />
+		<!--***********************************************************************-->
+		
+		
+		<p class="ccc">修改标签不修改内容</p>
+		<p class="ccc">用 each 遍历获取每个标签内容</p>
+		<p class="ccc">用 replaceWith 替换标签时将遍历的标签内容引入</p>
+		<p class="ccc">33333333333333333333333333333333333333</p>
+		<script type="text/javascript">
+			$('.ccc').each(function(){
+				val=$(this).html();
+				$(this).replaceWith('<i>' + val + '</i>' + '<br>')
+			})
+		</script>
+		
+	</body>
+</html>

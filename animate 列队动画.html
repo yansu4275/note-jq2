@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="aaa">列队动画，回调函数形式，可操作性多个dom</button>
+		<hr />
+		<div class="aaa">aaa</div>
+		<div class="bbb">bbb</div>
+		<div class="ccc">ccc</div>
+		
+		<hr />
+		<hr />
+		<hr />
+		
+		<button id="bbb">列队动画，连缀形式，只适用一个dom</button>
+		<div class="ddd">ddd</div>
+	</body>
+</html>
+		<script type="text/javascript">
+			/*列队动画	样式一个一个执行*/
+	 	/*回调函数	可适用不同元素		不够清晰*/
+				$('#aaa').click(function(){
+					$('.aaa').animate({
+						width:'200px'
+					},function(){
+						$('.bbb').animate({
+							width:'300px'
+						},function(){
+							$('.ccc').animate({
+								opacity:'0.5'
+							})
+						})
+					})
+				}) 
+		/*连缀	只适用于一个元素*/		
+				$('#bbb').click(function(){
+					$('.ddd').animate({width:'300px'})
+							 .animate({height:'300px'})
+							 .animate({opacity:0.5})
+							 .animate({'background':'yellow'})
+				})
+		</script>

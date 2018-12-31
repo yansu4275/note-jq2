@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	var data = [
+		{name:'user1', job:'job1'},
+		{name:'user2', job:'job2'},
+		{name:'user3', job:'job3'},
+		{name:'user4', job:'job4'},
+	]
+	var data_len = data.length
+	
+	var aaa = new Array(data_len + 1).join(
+			'<p style="color:red" >0</p>'
+		)
+	
+//	$(
+//		aaa = new Array(data_len + 1).join('<p style="color:red" >0</p>')
+//	); // 创建 9 个。
+	
+	$('body').html(aaa)
+	$('p').each(function(i){
+		$('p').eq(i).html(data[i].name + '--' + data[i].job )
+	})
+	
+</script>

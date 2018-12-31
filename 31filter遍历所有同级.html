@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src=" js/jquery-3.2.0.js"></script>
+		<style type="text/css">
+			.bbb{
+				color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h2>filter---遍历同级元素。筛选当前元素中的某元素</h2>
+			<h2>find---删选子元素</h2>
+			<p>0000000000000000000000000000</p>
+			<p class="aaa">00000000000000000000000000000000</p>
+			<p class="aaa">00000000000000000000000000000000</p>
+			<p>0000000000000000000000000000</p>
+		
+			<h3>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h3>
+			<h3>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h3>
+			<h3>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h3>
+			<h3>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h3>
+			<h3 class="ccc">bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h3>
+		</div>
+		<hr />
+		
+		
+		<div>
+			<h3>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h3>
+			<h3>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h3>
+			<h3>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h3>
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	$('p').css({'background':'#red'}).filter('.aaa').css({'color':'red'})
+	
+	
+	// h3添加bbb样式，遍历获取h3中第二个，添加背景颜色
+	$('h3').addClass('bbb').filter(function(i){
+		return i==1;
+	}).css({'background':'#ccc'})
+	
+	$('h3').filter('.ccc').css({'color':'red'})
+	
+</script>

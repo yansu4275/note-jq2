@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min-1.8.js"></script>
+		<style type="text/css">
+			.error{
+				color: #f00;
+				font-weight: bold;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<p>给三个表单用 data 赋值 s，表格有误 s=0，表格无误 s=1</p>
+		<p>设置 tot 为三个表格的 s 值之和</p>
+		<p>提交时，若 tot 不为表单总数时，则说明 表单有误，禁止提交</p>
+		
+		
+		<form action="index.php">
+			<p>用户名：</p>
+			<input type="text" name="username" id="" value="" class="auth"/>
+			<span class="error">用户名长度6~12位</span>
+			
+			<p>密码：</p>
+			<input type="password" name="password" id="" value="" class="auth"/>
+			<span class="error">密码长度8~16位</span>
+			
+			<p>确认密码：</p>
+			<input type="password" name="repassword" id="" value="" class="auth"/>
+			<span class="error">两次密码不一致</span>
+			
+			<p>邮箱：</p>
+			<input type="text" name="email" value="" class="auth"/>
+			<span class="error">邮箱有误</span>
+			
+			<p>手机：</p>
+			<input type="text" name="phone" value="" maxlength="11" class="auth"/>
+			<span class="error">手机号以139开头的11位</span>
+			
+			<br /><br />
+			<input type="submit" value="提交" />
+		</form>
+		
+		<script type="text/javascript">
+			//用户名验证
+			$('input[name=username]').blur(function(){
+				val=this.value;
+				if (val.length<6||val.length>12) {
+					$(this).data({'s':0})
+					$(this).next().show()
+				} else{
+					$(this).data({'s':1})
+					$(this).next().hide()
+					
+				}
+			})
+			
+			
+			//密码验证
+			$('input[name=password]').blur(function(){
+				val=this.value;
+				if (val.length<8||val.length>16) {
+					$(this).data({'s':0})
+					$(this).next().show()
+				} else{
+					$(this).data({'s':1})
+					$(this).next().hide()
+					
+				}
+			})
+			
+			
+			//密码二次输入验证
+			$('input[name=repassword]').blur(function(){
+				val1=this.value;
+				val2=$('input[name=password]').val()
+				if (val1!=val2) {
+					$(this).data({'s':0})
+					$(this).next().show()
+				} else{
+					$(this).data({'s':1})
+					$(this).next().hide()
+					
+				}
+			})
+			
+			//邮箱验证
+			$('input[name=email]').blur(function(){
+				val=this.value;
+				if (!val.match(/^\w+@\w+\.\w+$/i)) {
+					$(this).data({'s':0})
+					$(this).next().show()
+				} else{
+					$(this).data({'s':1})
+					$(this).next().hide()
+					
+				}
+			})
+			
+			//手机验证
+			$('input[name=phone]').blur(function(){
+				val=this.value;
+				if (!val.match(/^138\d{8}$/)) {
+					$(this).data({'s':0})
+					$(this).next().show()
+				} else{
+					$(this).data({'s':1})
+					$(this).next().hide()
+					
+				}
+			})
+			
+	//给三个表单用 data 赋值 s，表格有误 s=0，表格无误 s=1
+	//设置 tot 为三个表格的 s 值之和
+	//提交时，若 tot 不为表单总数，则说明 表单有误，禁止提交
+			//提交验证,有问题时不提交
+			$('form').submit(function(){
+				$('.auth').blur()
+				
+				tot=0;
+				$('.auth').each(function(){
+					tot+=$(this).data('s')
+				})
+
+				if (tot!=$('.auth').size()) {
+					return false;
+				}
+				
+//				if (tot!=5) {
+//					return false;
+//				}
+				
+			})
+		</script>
+	</body>
+</html>

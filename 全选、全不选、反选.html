@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h4>全选、反选</h4>
+		<form action="">
+			<p>
+			<label>
+				<input type="checkbox" name="" id="" /> 篮球
+			</label>
+			</p>
+			<p>
+			<label>
+				<input type="checkbox" name="" id="" /> 足球
+			</label>
+			</p>
+			<p>
+			<label>
+				<input type="checkbox" name="" id="" /> 排球
+			</label>
+			</p>
+			<p>
+			<label>
+				<input type="checkbox" name="" id="" /> 网球
+			</label>
+			</p>
+			<p>
+			<label>
+				<input type="checkbox" name="" id="" /> 乒乓球
+			</label>
+			</p>
+		</form>
+			
+		<button id="all">全选</button>
+		<button id="notall">全不选</button>
+		<button id="unall">反选</button>
+		
+		
+		<script type="text/javascript">
+		//全选
+			$('#all').click(function(){
+				$(':checkbox').attr({'checked':true})
+			})
+		//全不选	
+			$('#notall').click(function(){
+				$(':checkbox').attr({'checked':false})
+			})
+		//反选	
+			$('#unall').click(function(){
+				$(':checkbox').each(function(){
+					this.checked=!this.checked
+				})
+			})
+		</script>
+	</body>
+</html>

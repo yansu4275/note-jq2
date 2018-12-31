@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<p>缓存</p>
+		<p class="aaa"></p>
+		<p class="bbb"></p>
+		<hr />
+		
+		
+		
+		<p>本地</p>		
+		<p class="ccc"></p>
+		<p class="ddd"></p>
+	</body>
+</html>
+<script type="text/javascript">
+	$('.aaa').html(sessionStorage.getItem('k_username'))
+	$('.bbb').html(sessionStorage.getItem('k_password'))
+	
+	$('.ccc').html(localStorage.getItem('k_username2'))
+	$('.ddd').html(localStorage.getItem('k_password2'))
+</script>

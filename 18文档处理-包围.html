@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h3>包围</h3>
+		<h4>wrap()----------------------给 .aaa 包围一个div，每个aaa包围一个</h4>
+		<p class="aaa">111111111111111111111111111</p>
+		<p class="aaa">111111111111111111111111111</p>
+		<script type="text/javascript">
+			$('.aaa').wrap('<div style="background: orange;"></div>')
+		</script>
+		<hr />
+		<!--**********************************************************************-->
+		
+		
+		
+		<h4>wrapInner()------------------将超链接 .ccc 包围到 .bbb 外面</h4>
+		<p class="bbb" style="background: #ccc;">22222222222222222222222222</p>
+		<a href="" class="ccc">000</a>
+		<script type="text/javascript">
+			$('.ccc').wrapInner('.bbb')
+		</script>
+		<hr />
+		
+		<h4>wrapAll()---------------------外部全包围</h4>
+		<p class="ddd">33333333333333333333333</p>
+		<p class="ddd">33333333333333333333333</p>
+		<p class="ddd">33333333333333333333333</p>
+		<script type="text/javascript">
+			$('.ddd').wrapAll('<div style="background: #ccc;">000</div>')
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h3>串联</h3>
+		<h4>add()-------------------------类似基础选择器中的组合</h4>
+		<h4 class="aaa">111111111111111111111111111111111111</h4>
+		<p class="bbb">111111111111111111111111111111111111</p>
+		<script type="text/javascript">
+			$('.aaa').add('.bbb').css({'background':'orange'})
+			$('.aaa,.bbb').css({'color':'blue'})
+		</script>
+		<hr />
+		<!--********************************************************-->
+		
+		<h4>andSelf()---------------------串联到自己</h4>
+		<div class="ccc">
+			<p>通过 div.ccc 找到他的后面一个元素 h3 ，再返回来带上自己</p>
+		</div>
+		<h3>222222222222222222222222222222222</h3>
+		<script type="text/javascript">
+			$('.ccc').next().andSelf().css({'background':'#ccc'})
+		</script>
+		<h4></h4>
+	</body>
+</html>

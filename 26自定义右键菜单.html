@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			ul{
+				/*width: 200px;*/
+				background: #CCCCCC;
+				padding: 10px;
+				position: absolute;
+				border-radius: 10px;
+			}
+			ul li{
+				font: 25px/50px 微软雅黑;
+				list-style: none;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>x=event.clientX;</li>
+			<li>鼠标指针位置</li>
+			<li>00000000000</li>
+			<li>e.preventDefault()</li>
+			<li>组织默认事件</li>
+			<li>00000000000</li>
+		</ul>
+		<script type="text/javascript">
+			$(document).contextmenu(function(event){
+				
+				var event = event || window.event
+				event.preventDefault()
+				
+				//获取鼠标指针位置
+				x=event.clientX;
+				y=event.clientY;
+				
+				// 获取弹窗自身+内边距+边框尺寸
+				ulx=$('ul').outerWidth();
+				uly=$('ul').outerHeight();
+				
+				// 判断是否靠右边和底边
+				a=$(window).width()-ulx-x;
+				b=$(window).height()-uly-y;
+				
+				a<0 ? x=x-ulx : x;
+				b<0 ? y=y-uly : y;
+				
+				$('ul').css({'left':x+'px','top':y+'px'})
+				
+			})
+		</script>
+	</body>
+</html>

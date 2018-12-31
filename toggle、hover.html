@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h4>toggle 循环单击，hover 鼠标移入移出</h4>
+		<img src="img/0.png"/>
+		<script type="text/javascript">
+			$('img').toggle(
+				function(){
+					this.src='img/1.png'
+				},
+				function(){
+					this.src='img/0.png'
+				},
+				function(){
+					this.src='img/2.png'
+				}
+			)
+			
+			$('img').hover(
+				function(){
+					this.style.background='orange'
+				},
+				function(){
+					this.style.background=''
+				} 
+			)
+		</script>		
+		<hr />
+		<!--************************************************************************-->
+		
+	</body>
+</html>

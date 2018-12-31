@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="aaa" id="aaa" value="" />
+	</body>
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$('#aaa').focus(function(){
+		console.log('获取光标')
+	})
+	
+	$('#aaa').blur(function(){
+		console.log('失去光标')
+	})
+	
+	$('#aaa').on('input', function(){
+		console.log(this.value)
+	})
+	
+	$('#aaa').change(function(){
+		console.log('change')
+	})
+	
+	console.log(navigator.userAgent)
+</script>

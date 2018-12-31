@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p class="aaa">aaa</p>
+		<div>屏幕宽度小于400隐藏</div>
+		<p></p>
+		
+	</body>
+</html>
+
+
+
+<script src="js/jquery.min-1.8.js"></script>
+<script type="text/javascript">
+	$(window).resize(function(){
+    	if ($(window).width()<400) {
+    		$('.aaa').hide()
+    	}else{
+    		$('.aaa').show()
+    	}
+    	
+    	
+    	$('p').html($(window).width())
+    })
+</script>

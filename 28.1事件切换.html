@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 500px;
+				background: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>基本</h3>
+		<h4>show()</h4>
+		<h4>hide()</h4>
+		<h4>toggle()</h4>
+		<h1 class="aaa">点击显示隐藏切换</h1>
+		<div>111111111111111111111111111111111</div>
+		<script type="text/javascript">
+			$('.aaa').click(function(){
+				$(this).next().toggle(1000);
+			})
+		</script>
+		<hr />
+		<!--**********************************************************************-->
+		
+		
+		<h3>滑动</h3>
+		<h4>slideUp()</h4>
+		<h4>slideDown()</h4>
+		<h4>slideToggle()</h4>
+		<h1 class="bbb">点击划入划出</h1>
+		<div>22222222222222222222222222222222</div>
+		<script type="text/javascript">
+			$('.bbb').click(function(){
+				$(this).next().slideToggle(1000)
+			})
+		</script>
+		
+		<hr />
+		<!--**********************************************************************-->
+				
+		
+		
+		<h3>淡入淡出</h3>
+		<h4>fadeIn()</h4>
+		<h4>fadeOut()</h4>
+		<h4>fadeTo(a,b)------------------- a 秒后透明度变为 b</h4>
+		<h1 class="ccc">点击透明度变低</h1>
+		<div>33333333333333333333333333333333</div>
+		<script type="text/javascript">
+			$('.ccc').click(function(){
+				d=$(this).next().css('opacity')
+				
+				if (d==1) {
+					$(this).next().fadeTo(1000,0.5)
+				} else{
+					$(this).next().fadeTo(1000,1)
+				}
+			})
+			
+			
+		</script>
+		<hr />
+		<!--**********************************************************************-->
+		
+		<h4></h4>
+		<h4></h4>
+		<h4></h4>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min-1.8.js"></script>
+		<!--[if lt IE 8]>
+<script>
+
+$('p').html('00000000')
+</script>
+<![endif]-->
+		<style type="text/css">
+			select{
+				width: 100px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="javascript:" method="post">
+			<select name="" id="s1" size="4" multiple>
+				<option value="">篮球</option>
+				<option value="">足球</option>
+				<option value="">排球</option>
+				<option value="">网球</option>
+			</select>
+			
+			<button class="aaa">>></button>
+			<button class="bbb"><<</button>
+			
+			<select name="" id="s2" size="4" multiple>
+				
+			</select>
+		</form>
+		
+		<script type="text/javascript">
+			$('.aaa').click(function(){
+				$('#s1 option:selected').clone().appendTo('#s2')
+			})
+			
+			$('.bbb').click(function(){
+				$('#s2 option:selected').remove()
+			})
+		</script>
+	</body>
+</html>

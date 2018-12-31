@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+		<style type="text/css">
+			div{
+				width:200px;
+				/*overflow: hidden;*/
+				outline: 1px red solid;
+			}
+			
+			img{
+				width: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img src="img/a.jpg"/>
+		</div>
+	</body>
+</html>
+		<script type="text/javascript">
+			$('img').hover(
+				function(){
+					$(this).stop().animate({
+						'margin-left':'-100px'
+					},500)
+				},
+				function(){
+					$(this).stop().animate({
+						'margin-left':'0px'
+					},500)
+				}
+			)
+		</script>

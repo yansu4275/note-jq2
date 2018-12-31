@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min-1.8.js"></script>
+		<style type="text/css">
+			.aaa{
+				background: orange;
+				cursor: move;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="aaa" style="position: absolute;" >
+			<img src="img/0.png"/>
+		</div>
+		
+		<script type="text/javascript">
+			function drag(obj){
+				obj.bind('mousedown',start);
+				
+				function start(event){
+					console.log('按下')
+					
+					// div左上角的坐标
+					deltaX=event.clientX-obj.offset().left;
+					deltaY=event.clientY-obj.offset().top;
+					
+					// 将移动事件绑定在document上，避免bug					
+					$(document).bind('mousemove',move);
+					$(document).bind('mouseup',stop);
+					
+					return false;
+				}
+				
+				// 这个位置不加参数，在火狐不能用
+				function move(event){
+					console.log('移动')
+					obj.css({
+						'left':(event.clientX-deltaX)+'px',
+						'top':(event.clientY-deltaY)+'px'
+					})
+//					return false;
+				}
+				
+				function stop(){
+					console.log('抬起')
+					$(document).unbind('mousemove',move)
+//					$(document).unbind('mouseup',stop)
+				}
+			}
+			
+			drag($('.aaa'))
+		</script>
+	</body>
+</html>

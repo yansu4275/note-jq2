@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min-1.8.js"></script>
+	</head>
+	<body>
+		<h3>值</h3>
+		<h4>val()-------------------------赋值内容，比如 input 的 value 值</h4>
+		<h4>val(**)</h4>
+		<hr />
+		<!--**************************************************************-->
+		
+		
+		
+		<input type="text" />
+		<button>>></button>
+		<input type="text" />
+		
+		
+		<script type="text/javascript">
+		$(function(){
+//			timer=setInterval(function(){
+//				val=$('input').eq(0).val()
+//				$('input').eq(1).val(val)
+//			},1000)
+			
+			$('input').eq(0).keyup(function() {
+				$('input').eq(1).val($(this).val())
+			})
+			
+		})
+//		window.onload=function(){
+//			js
+//		}
+		</script>
+	</body>
+</html>
