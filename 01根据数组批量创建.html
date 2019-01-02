@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<script src="js/jquery-3.2.0.js"></script>
-	</head>
-	<body>
-		<ul class="ul1">
-			<b>标题---------</b>
-			<b>人数</b>
-		</ul>
-	</body>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-3.2.0.js"></script>
+</head>
+
+<body>
+    <ul class="ul1">
+        <b>标题---------</b>
+        <b>人数</b>
+
+    </ul>
+</body>
+
 </html>
 <script type="text/javascript">
-	var aaa = [
-		{title:'标题1', read:'100'},
-		{title:'标题2', read:'100'},
-		{title:'标题3', read:'100'},
-		{title:'标题4', read:'100'},
-		{title:'标题5', read:'100'},
-	]
-	for(var i=0; i<aaa.length; i++){
-		$('ul').append('<li><span>标题：</span><span>人数：</span></li>')
-	}
-	$('li').each(function(i){
-		$(this).find('span').eq(0).append(aaa[i].title).siblings('span').append(aaa[i].read)
-	})
-	
-	
-	var bbb = {name:'user1',job:'job1'}
-		for(var tmp in bbb){
-		    console.log(tmp);//“键名”
-		    console.log(bbb[tmp]);//“键值'
-		}
-	
+    var aaa = [{
+        title: '标题1',
+        read: '100'
+    }, {
+        title: '标题2',
+        read: '100'
+    }, {
+        title: '标题3',
+        read: '100'
+    }, {
+        title: '标题4',
+        read: '100'
+    }, {
+        title: '标题5',
+        read: '100'
+    }, ]
+    for (var i = 0; i < aaa.length; i++) {
+        $('ul').append('<li><span>标题：</span><span>人数：</span></li>')
+    }
+    $('li').each(function(i) {
+        $(this).find('span').eq(0).append(aaa[i].title).siblings('span').append(aaa[i].read)
+    })
+
+
+    var bbb = {
+        name: 'user1',
+        job: 'job1'
+    }
+    for (var tmp in bbb) {
+        console.log(tmp); //“键名”
+        console.log(bbb[tmp]); //“键值'
+    }
 </script>
