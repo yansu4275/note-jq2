@@ -8,31 +8,66 @@
 		<input type="text" name="" id="aaa" value="" />
 		<button onclick="setCookie()">保存</button>
 		<button onclick="removeCookie()">删除</button>
-		<button onclick="getCookie()">删除</button>
+		<button onclick="getCookie()">获取</button>
 		
 		<hr />
 		<a href="../0.使用数组创建多个标签.html">00000000000000000000</a>
 	</body>
 </html>
 <script type="text/javascript">
-	function setCookie(key, value, iDay) {
-	    var oDate = new Date();
-	    oDate.setDate(oDate.getDate() + iDay);
+
+var cookie = {
+        set:function(key,val,time){//设置cookie方法
+            var date=new Date(); //获取当前时间
+            var expiresDays=time;  //将date设置为n天以后的时间
+            date.setTime(date.getTime()+expiresDays*24*3600*1000); //格式化为cookie识别的时间
+            document.cookie=key + "=" + val +";expires="+date.toGMTString();  //设置cookie
+        },
+        get:function(key){//获取cookie方法
+            /*获取cookie参数*/
+            var getCookie = document.cookie.replace(/[ ]/g,"");  //获取cookie，并且将获得的cookie格式化，去掉空格字符
+            var arrCookie = getCookie.split(";")  //将获得的cookie以"分号"为标识 将cookie保存到arrCookie的数组中
+            var tips;  //声明变量tips
+            for(var i=0;i<arrCookie.length;i++){   //使用for循环查找cookie中的tips变量
+                var arr=arrCookie[i].split("=");   //将单条cookie用"等号"为标识，将单条cookie保存为arr数组
+                if(key==arr[0]){  //匹配变量名称，其中arr[0]是指的cookie名称，如果该条变量为tips则执行判断语句中的赋值操作
+                    tips=arr[1];   //将cookie的值赋给变量tips
+                    break;   //终止for循环遍历
+                }
+            }
+            return tips;
+        },
+        delete:function(key){ //删除cookie方法
+            var date = new Date(); //获取当前时间
+            date.setTime(date.getTime()-10000); //将date设置为过去的时间
+            document.cookie = key + "=v; expires =" +date.toGMTString();//设置cookie
+        }
+    }
+    cookie.set("uesr","sss",24)
+    console.log(document.cookie.split('; '))
+
+
+
+
+	// function setCookie(key, value, iDay) {
+	//     var oDate = new Date();
+	//     oDate.setDate(oDate.getDate() + iDay);
 	    
-	    var value = document.getElementById('aaa')
-	    document.cookie = key + '=' + value + ';expires=' + oDate;
-	}
-	function removeCookie(key) {
-	    setCookie(key, '', -1);//这里只需要把Cookie保质期退回一天便可以删除
-	}
-	function getCookie(key) {
-	    var cookieArr = document.cookie.split('; ');
-	    for(var i = 0; i < cookieArr.length; i++) {
-	        var arr = cookieArr[i].split('=');
-	        if(arr[0] === key) {
-	            return arr[1];
-	        }
-	    }
-	    return false;
-	}
+	//     var value = document.getElementById('aaa')
+	//     document.cookie = key + '=' + value + ';expires=' + oDate;
+	// }
+	// function removeCookie(key) {
+	//     setCookie(key, '', -1);//这里只需要把Cookie保质期退回一天便可以删除
+	// }
+	// function getCookie(key) {
+	//     var cookieArr = document.cookie.split('; ');
+    //     console.log(cookieArr)
+	//     for(var i = 0; i < cookieArr.length; i++) {
+	//         var arr = cookieArr[i].split('=');
+	//         if(arr[0] === key) {
+	//             return arr[1];
+	//         }
+	//     }
+	//     return false;
+	// }
 </script>
